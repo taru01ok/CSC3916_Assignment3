@@ -27,7 +27,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "http": "0.0.1-security",
-    "jsonwebtoken": "^9.0.2",
+    "jsonwebtoken": "^9.0.3",
     "mongoose": "^8.10.1",
     "passport": "^0.7.0",
     "passport-http": "^0.3.0",
