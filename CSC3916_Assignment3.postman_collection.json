@@ -17,9 +17,7 @@
               "pm.environment.set(\"username\", \"user_\" + Math.random().toString(36).substring(2,8) + \"@test.com\");",
               "pm.environment.set(\"password\", \"pass_\" + Math.random().toString(36).substring(2,8));"
             ],
-            "type": "text/javascript",
-            "packages": {},
-            "requests": {}
+            "type": "text/javascript"
           }
         }
       ],
@@ -29,23 +27,13 @@
         "body": {
           "mode": "raw",
           "raw": "{\n  \"name\": \"Test User\",\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
+          "options": { "raw": { "language": "json" } }
         },
         "url": {
           "raw": "https://csc3916-assignment3-12ic.onrender.com/signup",
           "protocol": "https",
-          "host": [
-            "csc3916-assignment3-12ic",
-            "onrender",
-            "com"
-          ],
-          "path": [
-            "signup"
-          ]
+          "host": ["csc3916-assignment3-12ic", "onrender", "com"],
+          "path": ["signup"]
         }
       },
       "response": []
@@ -60,9 +48,7 @@
               "var jsonData = pm.response.json();",
               "pm.environment.set(\"token\", jsonData.token);"
             ],
-            "type": "text/javascript",
-            "packages": {},
-            "requests": {}
+            "type": "text/javascript"
           }
         }
       ],
@@ -72,23 +58,13 @@
         "body": {
           "mode": "raw",
           "raw": "{\n  \"username\": \"taruni@test.com\",\n  \"password\": \"password123\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
+          "options": { "raw": { "language": "json" } }
         },
         "url": {
           "raw": "https://csc3916-assignment3-12ic.onrender.com/signin",
           "protocol": "https",
-          "host": [
-            "csc3916-assignment3-12ic",
-            "onrender",
-            "com"
-          ],
-          "path": [
-            "signin"
-          ]
+          "host": ["csc3916-assignment3-12ic", "onrender", "com"],
+          "path": ["signin"]
         }
       },
       "response": []
@@ -98,32 +74,18 @@
       "request": {
         "method": "POST",
         "header": [
-          {
-            "key": "Authorization",
-            "value": "{{token}}",
-            "type": "text"
-          }
+          { "key": "Authorization", "value": "{{token}}", "type": "text" }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n  \"title\": \"The Matrix\",\n  \"releaseDate\": 1999,\n  \"genre\": \"Science Fiction\",\n  \"actors\": [\n    { \"actorName\": \"Keanu Reeves\", \"characterName\": \"Neo\" },\n    { \"actorName\": \"Laurence Fishburne\", \"characterName\": \"Morpheus\" },\n    { \"actorName\": \"Carrie-Anne Moss\", \"characterName\": \"Trinity\" }\n  ]\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
+          "options": { "raw": { "language": "json" } }
         },
         "url": {
           "raw": "https://csc3916-assignment3-12ic.onrender.com/movies",
           "protocol": "https",
-          "host": [
-            "csc3916-assignment3-12ic",
-            "onrender",
-            "com"
-          ],
-          "path": [
-            "movies"
-          ]
+          "host": ["csc3916-assignment3-12ic", "onrender", "com"],
+          "path": ["movies"]
         }
       },
       "response": []
@@ -132,7 +94,15 @@
       "name": "Get All Movies",
       "request": {
         "method": "GET",
-        "header": []
+        "header": [
+          { "key": "Authorization", "value": "{{token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "https://csc3916-assignment3-12ic.onrender.com/movies",
+          "protocol": "https",
+          "host": ["csc3916-assignment3-12ic", "onrender", "com"],
+          "path": ["movies"]
+        }
       },
       "response": []
     },
@@ -140,31 +110,71 @@
       "name": "GET one movie",
       "request": {
         "method": "GET",
-        "header": []
+        "header": [
+          { "key": "Authorization", "value": "{{token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "https://csc3916-assignment3-12ic.onrender.com/movies/The Matrix",
+          "protocol": "https",
+          "host": ["csc3916-assignment3-12ic", "onrender", "com"],
+          "path": ["movies", "The Matrix"]
+        }
       },
       "response": []
     },
     {
       "name": "Update Movie",
       "request": {
-        "method": "GET",
-        "header": []
+        "method": "PUT",
+        "header": [
+          { "key": "Authorization", "value": "{{token}}", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"The Matrix\",\n  \"releaseDate\": 1999,\n  \"genre\": \"Science Fiction\",\n  \"actors\": [\n    { \"actorName\": \"Keanu Reeves\", \"characterName\": \"Neo\" },\n    { \"actorName\": \"Laurence Fishburne\", \"characterName\": \"Morpheus\" },\n    { \"actorName\": \"Carrie-Anne Moss\", \"characterName\": \"Trinity\" }\n  ]\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "https://csc3916-assignment3-12ic.onrender.com/movies/The Matrix",
+          "protocol": "https",
+          "host": ["csc3916-assignment3-12ic", "onrender", "com"],
+          "path": ["movies", "The Matrix"]
+        }
       },
       "response": []
     },
     {
       "name": "Delete Movie",
       "request": {
-        "method": "GET",
-        "header": []
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "{{token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "https://csc3916-assignment3-12ic.onrender.com/movies/The Matrix",
+          "protocol": "https",
+          "host": ["csc3916-assignment3-12ic", "onrender", "com"],
+          "path": ["movies", "The Matrix"]
+        }
       },
       "response": []
     },
     {
       "name": "Signup - User Exists Error",
       "request": {
-        "method": "GET",
-        "header": []
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\",\n  \"username\": \"taruni@test.com\",\n  \"password\": \"password123\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "https://csc3916-assignment3-12ic.onrender.com/signup",
+          "protocol": "https",
+          "host": ["csc3916-assignment3-12ic", "onrender", "com"],
+          "path": ["signup"]
+        }
       },
       "response": []
     },
@@ -173,32 +183,18 @@
       "request": {
         "method": "POST",
         "header": [
-          {
-            "key": "Authorization",
-            "value": "{{token}}",
-            "type": "text"
-          }
+          { "key": "Authorization", "value": "{{token}}", "type": "text" }
         ],
         "body": {
           "mode": "raw",
           "raw": "{\n  \"title\": \"Bad Movie\",\n  \"releaseDate\": 2020,\n  \"genre\": \"Action\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
+          "options": { "raw": { "language": "json" } }
         },
         "url": {
           "raw": "https://csc3916-assignment3-12ic.onrender.com/movies",
           "protocol": "https",
-          "host": [
-            "csc3916-assignment3-12ic",
-            "onrender",
-            "com"
-          ],
-          "path": [
-            "movies"
-          ]
+          "host": ["csc3916-assignment3-12ic", "onrender", "com"],
+          "path": ["movies"]
         }
       },
       "response": []
